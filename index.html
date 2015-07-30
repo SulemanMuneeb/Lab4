@@ -1,0 +1,62 @@
+<html>
+ <head>
+ <script type="text/javascript"
+             src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
+
+ <script type="text/javascript">
+ function drawChart() {
+   var data = google.visualization.arrayToDataTable([
+['Age', 'Age, Weight(KG)'],
+     [ 8,      12],
+     [ 4,      5.5],
+     [ 16,     45],
+     [ 13,      45],
+     [ 12,      37],
+	 [ 11,      37],
+	 [ 14,      17],
+	 [ 17,      27],
+     [ 23,    64]
+   ]);
+
+   var options = {
+     title: 'BMI Comparison',
+     legend: 'none',
+     crosshair: { trigger: 'both', orientation: 'both' },
+     trendlines: {
+       0: {
+         type: 'polynomial',
+         degree: 3,
+         visibleInLegend: true,
+       }
+     }
+   };
+
+   var chart = new google.visualization.ScatterChart(document.getElementById('polynomial2_div'));
+   chart.draw(data, options);
+ }
+ </script>
+ </head>
+ <body>
+ <h1>Graph For Personal BMI</h1>
+  <div id='polynomial2_div' style='width: 900px; height: 500px;'></div>
+</script>
+
+
+</script>
+
+<p>Enter Age:</p>
+<input type="text" id="mytext"><br>
+<script type="text/javascript">
+var elem3 = document.getElementById("mytext");
+elem3.value = "My default value";
+</script>
+<p>Enter Weight:</p>
+<input type="text" id="mytext"><br>
+<script type="text/javascript">
+var elem4 = document.getElementById("mytext");
+elem4.value = "";
+</script>
+<button onclick= "drawChart()">Submit</button>
+  
+ </body>
+</html>
